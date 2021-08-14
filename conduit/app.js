@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-mongoose.connect(" mongodb://127.0.0.1:27017/conduit",  { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGODB_URL,  { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   console.log(err ? err : "connected to db");
 });
 
